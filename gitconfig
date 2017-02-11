@@ -1,0 +1,32 @@
+[user]
+        name = Ty Walls
+        email = tygerbytes@users.noreply.github.com 
+[alias]
+        st = status
+        co = checkout
+        ci = commit
+        cl = clone
+        br = branch
+        r = reset
+        persh = push
+        rh = reset --hard
+        rh1 = reset --hard HEAD~1
+        ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        ll = log --pretty=format:'%Cred%h%C(yellow)%d%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%cn>%Creset' --decorate --numstat
+        type = cat-file -t
+        dump = cat-file -p
+        size = cat-file -s
+        lp = log -w --patch
+        unstage = reset --soft
+        undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+[color]
+        ui = true
+[help]
+        autocorrect = 1
+[branch]
+        autosetuprebase = always
+[core]
+        fscache = on
+        preloadindex = on
+        longpaths = true
+        editor = vim
