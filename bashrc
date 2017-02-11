@@ -1,6 +1,4 @@
 
-### Add to the end of .bashrc
-
 # --- posh-git-bash --- #
 # (see https://github.com/lyze/posh-git-sh )
 source ~/git-prompt.sh
@@ -15,6 +13,7 @@ alias dmo='git diff --name-only master..'
 alias lm='git log master..'
 alias gmt='git mergetool'
 alias grc='git rebase --continue'
+alias gst='git status'
 
 glf() {
   git ls-files *$1*
@@ -23,5 +22,4 @@ glf() {
 gg() {
   git grep -i --heading --line-number $@
 }
-
 
