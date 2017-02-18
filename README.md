@@ -3,7 +3,7 @@
 ## Usage
 1. Create a bare metal Ubuntu Linux VM
 1. Install Git and clone this repo
-1. Run `./bootstrap`, which will install some packages, including `rvm` and `Ruby`. Then it will automatically run `/.update.rb`, which will copy or patch the configuration files.
+1. Run `./bootstrap.sh`, which will install some packages, including `rvm` and `Ruby`. Then it will automatically run `/.update.rb`, which will copy or patch the configuration files.
 
 Later, you can run `./update.rb` by itself if all you did was update a config file.
 
