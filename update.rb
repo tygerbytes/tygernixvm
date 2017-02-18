@@ -41,6 +41,9 @@ end
 
 home = Pathname(Dir.home)
 
+status'-- Update any projects stored in Git submodues'
+%x( git submodule update --remote )
+
 
 status '-- .bashrc'
 patch 'bashrc', home + '.bashrc'
@@ -58,6 +61,8 @@ status '    - vim files'
 vimdir = home + '.vim'
 mkdir vimdir unless Dir.exists? vimdir
 cp_r 'vim/.', vimdir
+# Remove the .git file...
+rm vimdir + 'bundle/vim-commentary/.git*'
 
 
 status '-- .rvmrc'
