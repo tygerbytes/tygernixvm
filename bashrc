@@ -1,4 +1,9 @@
 
+# Environment
+export TMP=/tmp
+export TEMP=/tmp
+
+
 # --- posh-git-bash --- #
 # (see https://github.com/lyze/posh-git-sh )
 source ~/git-prompt.sh
