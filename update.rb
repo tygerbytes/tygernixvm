@@ -62,7 +62,7 @@ vimdir = home + '.vim'
 mkdir vimdir unless Dir.exists? vimdir
 cp_r 'vim/.', vimdir
 # Remove the .git file...
-rm vimdir + 'bundle/vim-commentary/.git*'
+rm vimdir + 'bundle/vim-commentary/.git'
 
 
 status '-- .rvmrc'
