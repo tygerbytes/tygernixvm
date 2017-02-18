@@ -9,3 +9,8 @@ Later, you can run `./update.rb` by itself if all you did was update a config fi
 
 ## Future plans.
 Currently, this script isn't very smart, but it speeds up provisioning a new VM to my liking. If I get some time, I'll look into using Ansible, or a Bash alternative like Turtle. For now, the script isn't that complex, so something like Ansible would probably be overkill..
+
+## Acknowledgements
+ - [posh-git-bash](https://github.com/lyze/posh-git-sh)
+ - [commentary.vim] (https://github.com/tpope/vim-commentary)
+
