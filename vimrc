@@ -99,6 +99,8 @@ set guifont=Consolas:h13 "Hack"
 
 syntax enable
 
+set number
+
 if has("gui_running")
     set background=dark
     colorscheme solarized
@@ -110,7 +112,7 @@ set backupskip=$TMP\\*
 set directory=$TMP
 set writebackup
 
-" use for spaces for tabs
+" use four spaces for tabs
 set shiftwidth=4 softtabstop=4 expandtab
 
 set undodir=$TMP
