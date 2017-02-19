@@ -4,7 +4,7 @@ export TMP=/tmp
 export TEMP=/tmp
 export PATH=$PATH:~/node_modules/binwrappers
 
- --- posh-git-bash --- #
+# --- posh-git-bash --- #
 # (see https://github.com/lyze/posh-git-sh )
 source ~/git-prompt.sh
 PROMPT_COMMAND='__posh_git_ps1 "\u@\h:\w" "\n\\\$ ";'$PROMPT_COMMAND
