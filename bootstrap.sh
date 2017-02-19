@@ -40,15 +40,31 @@ function update_rvm() {
 
 
 
+# Install some packages required to add the Docker apt repo
+sudo apt-get install -y --no-install-recommends \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+
+
 # Add package sources
-message "== Add some Debian package sources"
-message "|>\t - RVM"
-sudo apt-add-repository -y ppa:rael-gc/rvm
+message "== Add some apt package sources"
+
+message "|>\t - Docker"
+message "|>\t\t - Add Docker's official GPG key"
+curl -fsSL https://apt.dockerproject.org/gpg | sudo apt-key add -
+message "|>\t\t - Add repo"
+sudo add-apt-repository "deb https://apt.dockerproject.org/repo/ ubuntu-$(lsb_release -cs) main"
+
 message "|>\t - Node.js"
 curl -sL https://deb.nodesource.com/setup_7.x | grep -v 'apt-get update' | sudo -E bash -
 
+message "|>\t - RVM"
+sudo apt-add-repository -y ppa:rael-gc/rvm
 
-# Now that we've added our packages, run `apt-get update`
+
+# Now that we've added our package repos, run `apt-get update`
 apt_update
 
 
@@ -70,8 +86,8 @@ rvm use ruby --latest
 message "== Install some useful gems"
 gem install --no-document bundler pry
 
-message "<== Done bootstrapping Ruby"
-
+message "== Install Docker"
+sudo apt-get install -y docker-engine
 
 message "== Install Node.js"
 sudo apt-get install -y nodejs build-essential
