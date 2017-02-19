@@ -7,34 +7,53 @@ function message {
 }
 export -f message
 
-function hoursSinceAptGetUpdate()
+function minutes_since_file_updated()
 {
-    local aptDate="$(stat -c %Y '/var/cache/apt/pkgcache.bin')"
+    local file_to_check="${1}"
+    local aptDate="$(stat -c %Y ${file_to_check})"
     local nowDate="$(date +'%s')"
     local seconds_since_update=$((nowDate - aptDate))
-    echo "$((seconds_since_update / 60 / 60))"    
+    echo "$((seconds_since_update / 60))"    
+
 }
 
-
-
-message '==Bootstrap Ruby==>'
-function update_rvm {
-    message "\t - Adding apt repository for rvm"
-    sudo apt-add-repository -y ppa:rael-gc/rvm
-    message "\t - refresh apt packages"
-    local hours_since_update="$(hoursSinceAptGetUpdate)"
-    local updateInterval=24
-    if [[ "${hours_since_update}" -gt "${updateInterval}" ]]
+function apt_update()
+{
+    message "== Make sure packages are up-to-date."
+    local minutes_since_update="$(minutes_since_file_updated '/var/cache/apt/pkgcache.bin')"
+    local minutes_since_sources_changed="$(minutes_since_file_updated '/etc/apt/sources.list')"
+    local updateInterval=$((24 * 60))
+    if [[ "${minutes_since_update}" -gt "${updateInterval}" ]] || [[ "${minutes_since_sources_changed}" -lt "${minutes_since_update}" ]]
     then
+        message '|>\t - Updating'
         sudo apt-get update
     else
-        message "\t\t - Refreshed ${hours_since_update} hours ago. Update aborted."
+        message "|>\t - Refreshed ${minutes_since_update} minutes ago. No need to update."
     fi
-    message "\t - Installing/upgrading rvm (Don't forget to configure terminal to \"Run command as a logon shell\")"
+}
+
+function update_rvm() {
+    message "|>\t - Installing/upgrading rvm"
+    message " (Don't forget to configure terminal to \"Run command as a logon shell\")"
     sudo apt-get install -y rvm
 }
 
-message  "-- Checking rvm"
+
+
+# Add package sources
+message "== Add some Debian package sources"
+message "|>\t - RVM"
+sudo apt-add-repository -y ppa:rael-gc/rvm
+message "|>\t - Node.js"
+curl -sL https://deb.nodesource.com/setup_7.x | grep -v 'apt-get update' | sudo -E bash -
+
+
+# Now that we've added our packages, run `apt-get update`
+apt_update
+
+
+message '===Bootstrap Ruby==>'
+message  "== Checking rvm"
 if ! which rvm
 then
     update_rvm
@@ -44,25 +63,35 @@ else
     update_rvm
 fi
 
-message "-- Ensure Ruby installed"
+message "== Ensure Ruby installed"
 rvm install ruby --latest
 rvm use ruby --latest
 
-message "-- Install some useful gems"
+message "== Install some useful gems"
 gem install --no-document bundler pry
 
 message "<== Done bootstrapping Ruby"
 
 
-message "--Install some packages"
+message "== Install Node.js"
+sudo apt-get install -y nodejs build-essential
+
+message "== Install Elm"
+pushd .
+cd ~
+npm install elm
+popd
+
+
+message "== Install some miscellaneous packages"
 sudo apt-get install -y fonts-hack-ttf
 
-message "--Remove any uneeded packages"
+message "== Remove any uneeded packages"
 sudo apt-get autoremove -y
 
 
 # Now that we've bootstrapped Ruby,
 #  pass control to the Ruby-based update script
-message "-- Running update.rb"
+message "== Running update.rb"
 ./update.rb
 
