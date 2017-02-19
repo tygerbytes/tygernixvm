@@ -2,7 +2,7 @@
 # Environment
 export TMP=/tmp
 export TEMP=/tmp
-export PATH=$PATH:~/node_modules/binwrappers
+export PATH=$PATH:~/node_modules/elm/binwrappers
 
 # --- posh-git-bash --- #
 # (see https://github.com/lyze/posh-git-sh )
