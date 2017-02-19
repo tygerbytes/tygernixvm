@@ -80,6 +80,7 @@ message "== Install Elm"
 pushd .
 cd ~
 npm install elm
+sudo npm install -g elm-live
 popd
 
 
