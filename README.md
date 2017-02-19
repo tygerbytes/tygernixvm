@@ -14,4 +14,5 @@ Currently, this script isn't very smart, but it speeds up provisioning a new VM 
 ## Acknowledgements
  - [posh-git-bash](https://github.com/lyze/posh-git-sh)
  - [commentary.vim] (https://github.com/tpope/vim-commentary)
+ - [elm.vim] (https://github.com/lambdatoast/elm.vim)
 
