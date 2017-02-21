@@ -99,6 +99,11 @@ npm install elm
 sudo npm install -g elm-live
 popd
 
+message "== Install Stack"
+curl -sSL https://get.haskellstack.org/ | sh
+
+message "== Install Turtle"
+stack install turtle
 
 message "== Install some miscellaneous packages"
 sudo apt-get install -y fonts-hack-ttf
