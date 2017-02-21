@@ -105,6 +105,9 @@ curl -sSL https://get.haskellstack.org/ | sh
 message "== Install Turtle"
 stack install turtle
 
+message "== Install diff-so-fancy"
+sudo npm install -g diff-so-fancy
+
 message "== Install some miscellaneous packages"
 sudo apt-get install -y fonts-hack-ttf
 
