@@ -120,5 +120,3 @@ set undodir=$TMP
 " Treat all numerals as decimals, regardless of whether they are padded with zeroes.
 set nrformats=
 
-" Pathogen is a plugin for making it easy to load other plugins
-execute pathogen#infect()

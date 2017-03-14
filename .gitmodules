@@ -1,6 +1,0 @@
-[submodule "vim/bundle/vim-commentary"]
-	path = vim/bundle/vim-commentary
-	url = git@github.com:tpope/vim-commentary.git
-[submodule "vim/bundle/elm.vim"]
-	path = vim/bundle/elm.vim
-	url = https://github.com/lambdatoast/elm.vim.git
