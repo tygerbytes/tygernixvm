@@ -112,6 +112,9 @@ set backupskip=$TMP\\*
 set directory=$TMP
 set writebackup
 
+" No word wrap by default
+set wrap!
+
 " use four spaces for tabs
 set shiftwidth=4 softtabstop=4 expandtab
 
@@ -119,4 +122,13 @@ set undodir=$TMP
 
 " Treat all numerals as decimals, regardless of whether they are padded with zeroes.
 set nrformats=
+
+" Load vim-plug plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'elmcast/elm-vim'
+
+call plug#end()
+
+let g:elm_format_autosave = 1
 

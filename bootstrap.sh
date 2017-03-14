@@ -97,7 +97,11 @@ pushd .
 cd ~
 npm install elm
 sudo npm install -g elm-live
+sudo npm install -g elm-test
+sudo npm install -g elm-oracle
 popd
+sudo cp bin/elm-format /usr/local/bin
+sudo chmod +x /usr/local/bin/elm-format
 
 message "== Install Stack"
 curl -sSL https://get.haskellstack.org/ | sh
