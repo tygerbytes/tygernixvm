@@ -13,7 +13,7 @@ Currently, this script isn't very smart, but it speeds up provisioning a new VM 
 
 ## Acknowledgements
  - [posh-git-bash](https://github.com/lyze/posh-git-sh)
- - [node-test-runner] (https://github.com/rtfeldman/node-test-runner)
- - [elm-oracle] (https://github.com/elmcast/elm-oracle)
- - [elm-format] (https://github.com/avh4/elm-format)
- - [vim-plug] (https://github.com/junegunn/vim-plug)
+ - [node-test-runner](https://github.com/rtfeldman/node-test-runner)
+ - [elm-oracle](https://github.com/elmcast/elm-oracle)
+ - [elm-format](https://github.com/avh4/elm-format)
+ - [vim-plug](https://github.com/junegunn/vim-plug)
