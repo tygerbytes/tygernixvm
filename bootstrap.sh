@@ -115,6 +115,9 @@ sudo chmod +x /usr/local/bin/elm-format
 message "== Install Stack"
 curl -sSL https://get.haskellstack.org/ | sh
 
+message "|>\t - Update Stack"
+stack update
+
 message "== Install Turtle"
 stack install turtle
 
