@@ -74,14 +74,14 @@ if ! which rvm
 then
     update_rvm
     message "!!!Log out and back in. Then run this script again. (Required for rvm to work properly)"
-    exit
+    exit 1
 else
     update_rvm
 fi
 
 message "== Ensure Ruby installed"
 rvm install ruby --latest
-rvm use ruby --latest
+bash -l -c "rvm use ruby --latest"
 
 message "== Install some useful gems"
 gem install --no-document bundler pry
