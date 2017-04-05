@@ -89,6 +89,15 @@ gem install --no-document bundler pry
 message "== Install Docker"
 sudo apt-get install -y docker-engine
 
+message "== Install Docker Compose"
+message "|>\t - Resolving latest version from GitHub"
+LATEST_COMPOSE_VERSION=`git ls-remote https://github.com/docker/compose | grep refs/tags | grep -oP "[0-9]+\.[0-9][0-9]+\.[0-9]+$" | tail -n 1`
+message "|>\t\t - Latest version is ${LATEST_COMPOSE_VERSION}" 
+message "|>\t - Installing"
+sudo curl -L "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+
 message "== Install Node.js"
 sudo apt-get install -y nodejs build-essential
 
