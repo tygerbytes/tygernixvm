@@ -84,7 +84,7 @@ rvm install ruby --latest
 bash -l -c "rvm use ruby --latest"
 
 message "== Install some useful gems"
-gem install --no-document bundler pry
+gem install --no-document bundler pry colorize
 
 message "== Install Docker"
 sudo apt-get install -y docker-engine
