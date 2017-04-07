@@ -49,6 +49,11 @@ status '-- .bashrc'
 patch 'bashrc', home + '.bashrc'
 cp 'git-prompt.sh', home
 
+status '-- gpg-agent'
+gnupg_dir = home + '.gnupg'
+mkdir gnupg_dir unless Dir.exists? gnupg_dir
+cp 'gnupg/gpg-agent.conf', gnupg_dir
+
 
 status '-- .gitconfig'
 cp 'gitconfig', home + '.gitconfig'

@@ -1,6 +1,7 @@
 [user]
         name = Ty Walls
         email = tygerbytes@users.noreply.github.com 
+        signingkey = F9D381F74A71692E
 [alias]
         st = status
         co = checkout
@@ -35,3 +36,8 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[commit]
+    gpgsign = true
+[gpg]
+    program = gpg2
+

@@ -35,3 +35,5 @@ gg() {
   git grep -i --heading --line-number $@
 }
 
+eval $(gpg-agent --daemon)
+
