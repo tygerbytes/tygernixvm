@@ -127,6 +127,7 @@ set nrformats=
 call plug#begin('~/.vim/plugged')
 
 Plug 'elmcast/elm-vim'
+Plug 'vim-commentary'
 
 call plug#end()
 

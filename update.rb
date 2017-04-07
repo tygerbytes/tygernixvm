@@ -61,6 +61,8 @@ status '    - vim files'
 vimdir = home + '.vim'
 mkdir vimdir unless Dir.exists? vimdir
 cp_r 'vim/.', vimdir
+# Remove the .git file...
+rm vimdir + 'plugged/vim-commentary/.git'
 
 
 status '-- .rvmrc'
