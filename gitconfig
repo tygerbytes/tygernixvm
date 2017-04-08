@@ -1,7 +1,7 @@
 [user]
         name = Ty Walls
-        email = tygerbytes@users.noreply.github.com 
-        signingkey = F9D381F74A71692E
+        email = tygerbytes@tygertec.com
+        signingkey = D8060EA2A7BFB737
 [alias]
         st = status
         co = checkout
