@@ -127,7 +127,9 @@ message "== Install diff-so-fancy"
 sudo npm install -g diff-so-fancy
 
 message "== Install some miscellaneous packages"
-sudo apt-get install -y fonts-hack-ttf
+sudo apt-get install -y \
+    fonts-hack-ttf \
+    xclip
 
 message "== Remove any uneeded packages"
 sudo apt-get autoremove -y
