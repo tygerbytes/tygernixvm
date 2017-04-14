@@ -100,6 +100,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 message "== Install Docker Compose bash completion"
 sudo curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 
+message "== Install pip and aws cli"
+sudo apt install python-pip -y
+message "|> Upgrade pip"
+pip install --upgrade pip
+message "|> Install aws command line interface"
+pip install --upgrade --user awscli
+
+
 message "== Install Node.js"
 sudo apt-get install -y nodejs build-essential
 
