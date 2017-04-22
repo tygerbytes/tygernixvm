@@ -16,6 +16,9 @@ function jobs_count {
 source ~/git-prompt.sh
 PROMPT_COMMAND='__posh_git_ps1 "\u@\h:\w" "\n`jobs_count`λ ";'$PROMPT_COMMAND
 
+# awscli completion
+complete -C '$HOME/.local/bin/aws_completer' aws
+
 # --- Aliases --- #
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
