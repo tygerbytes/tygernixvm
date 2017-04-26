@@ -4,17 +4,21 @@ export TMP=/tmp
 export TEMP=/tmp
 export PATH=$PATH:~/node_modules/elm/binwrappers
 
+nocolor="\\033[0m"
+red="\\033[00;31m"
+blue="\\033[00;34m"
+
 function jobs_count {
     cnt=$(jobs -l | wc -l)
     if [ $cnt -gt 0 ]; then
-        echo -ne "[\\033[00;31m${cnt}\\033[0m] "
+        echo -ne "[$red${cnt}$nocolor] "
     fi
 }
 
 # --- posh-git-bash --- #
 # (see https://github.com/lyze/posh-git-sh )
 source ~/git-prompt.sh
-PROMPT_COMMAND='__posh_git_ps1 "\u@\h:\w" "\n`jobs_count`λ ";'$PROMPT_COMMAND
+PROMPT_COMMAND='__posh_git_ps1 "\u@\h:\w" "\n`jobs_count`$blueλ$nocolor ";'$PROMPT_COMMAND
 
 # awscli completion
 complete -C '$HOME/.local/bin/aws_completer' aws
