@@ -41,5 +41,7 @@ gg() {
   git grep -i --heading --line-number $@
 }
 
-eval $(gpg-agent --daemon)
+if ! ps -U "$USER" -o pid,ucomm | grep -q gpg-agent; then
+    eval $(gpg-agent --daemon)
+fi
 
