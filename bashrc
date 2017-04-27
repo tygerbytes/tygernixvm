@@ -4,9 +4,9 @@ export TMP=/tmp
 export TEMP=/tmp
 export PATH=$PATH:~/node_modules/elm/binwrappers
 
-nocolor="\\033[0m"
-red="\\033[00;31m"
-blue="\\033[00;34m"
+nocolor="\\[\\e[0m\\]"
+red="\\[\\e[00;31m\\]"
+blue="\\[\\e[00;34m\\]"
 
 function jobs_count {
     cnt=$(jobs -l | wc -l)
@@ -15,10 +15,14 @@ function jobs_count {
     fi
 }
 
+function lamda_prompt {
+    echo -ne "$blueλ$nocolor "
+}
+
 # --- posh-git-bash --- #
 # (see https://github.com/lyze/posh-git-sh )
 source ~/git-prompt.sh
-PROMPT_COMMAND='__posh_git_ps1 "\u@\h:\w" "\n`jobs_count`$blueλ$nocolor ";'$PROMPT_COMMAND
+PROMPT_COMMAND='__posh_git_ps1 "\u@\h:\w" "\n`jobs_count``lamda_prompt`";'$PROMPT_COMMAND
 
 # awscli completion
 complete -C '$HOME/.local/bin/aws_completer' aws
