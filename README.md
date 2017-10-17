@@ -16,6 +16,3 @@ Currently, this script isn't very smart, but it speeds up provisioning a new VM 
  - [node-test-runner](https://github.com/rtfeldman/node-test-runner)
  - [elm-oracle](https://github.com/elmcast/elm-oracle)
  - [elm-format](https://github.com/avh4/elm-format)
- - [vim-plug](https://github.com/junegunn/vim-plug)
- - [vim-commentary](https://github.com/tpope/vim-commentary)
-

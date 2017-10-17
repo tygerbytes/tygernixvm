@@ -142,9 +142,10 @@ sudo apt-get install -y \
 message "== Remove any uneeded packages"
 sudo apt-get autoremove -y
 
+message "== Clone Vim-config repo"
+git clone --recursive git@github.com:tygerbytes/vim-config.git ~/.vim && ~/.vim/setup.sh
 
 # Now that we've bootstrapped Ruby,
 #  pass control to the Ruby-based update script
 message "== Running update.rb"
 ./update.rb
-

@@ -44,7 +44,6 @@ home = Pathname(Dir.home)
 status'-- Update any projects stored in Git submodues'
 %x( git submodule update --remote )
 
-
 status '-- .bashrc'
 patch 'bashrc', home + '.bashrc'
 cp 'git-prompt.sh', home
@@ -54,22 +53,5 @@ gnupg_dir = home + '.gnupg'
 mkdir gnupg_dir unless Dir.exists? gnupg_dir
 cp 'gnupg/gpg-agent.conf', gnupg_dir
 
-
 status '-- .gitconfig'
 cp 'gitconfig', home + '.gitconfig'
-
-
-status '-- .vimrc'
-cp 'vimrc', home + '.vimrc'
-
-status '    - vim files'
-vimdir = home + '.vim'
-mkdir vimdir unless Dir.exists? vimdir
-cp_r 'vim/.', vimdir
-# Remove the .git file...
-rm vimdir + 'plugged/vim-commentary/.git'
-
-
-status '-- .rvmrc'
-cp 'rvmrc', home + '.rvmrc'
-

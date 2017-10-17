@@ -1,3 +1,0 @@
-[submodule "vim/plugged/vim-commentary"]
-	path = vim/plugged/vim-commentary
-	url = git@github.com:tpope/vim-commentary.git
