@@ -30,6 +30,7 @@ complete -C '$HOME/.local/bin/aws_completer' aws
 # --- Aliases --- #
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias v='vim'
 
 # --- Useful Git aliases and functions --- #
 alias g='git'
