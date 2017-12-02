@@ -143,7 +143,7 @@ message "== Remove any uneeded packages"
 sudo apt-get autoremove -y
 
 message "== Clone Vim-config repo"
-git clone --recursive git@github.com:tygerbytes/vim-config.git ~/.vim && ~/.vim/setup.sh
+git clone --recursive https://github.com/tygerbytes/vim-config.git ~/.vim && ~/.vim/setup.sh
 
 message "== Grab git-prompt.sh"
 wget https://raw.githubusercontent.com/lyze/posh-git-sh/f90fcc9a8d4ec93f1ed3fa0196974f7ab4ef0140/git-prompt.sh
