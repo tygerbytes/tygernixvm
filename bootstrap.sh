@@ -147,6 +147,7 @@ if [ -d "$HOME/.vim/.git" ]; then
     pushd .
     cd ~/.vim
     git pull
+    git submodule update --recursive
     popd
 else
     rm -rf $HOME/.vim
