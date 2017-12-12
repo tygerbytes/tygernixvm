@@ -46,7 +46,6 @@ status'-- Update any projects stored in Git submodues'
 
 status '-- .bashrc'
 patch 'bashrc', home + '.bashrc'
-cp 'git-prompt.sh', home
 
 status '-- gpg-agent'
 gnupg_dir = home + '.gnupg'
