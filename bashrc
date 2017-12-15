@@ -59,3 +59,6 @@ if [ "$COLORTERM" == "gnome-terminal" ] || [ "$COLORTERM" == "xfce4-terminal" ];
 elif [ "$COLORTERM" == "rxvt-xpm" ]; then
     TERM=rxvt-256color
 fi
+
+EDITOR=vim
+
