@@ -58,7 +58,7 @@ message "|>\t\t - Add repo"
 sudo add-apt-repository "deb https://apt.dockerproject.org/repo/ ubuntu-$(lsb_release -cs) main"
 
 message "|>\t - Node.js"
-curl -sL https://deb.nodesource.com/setup_7.x | grep -v 'apt-get update' | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | grep -v 'apt-get update' | sudo -E bash -
 
 message "|>\t - RVM"
 sudo apt-add-repository -y ppa:rael-gc/rvm
