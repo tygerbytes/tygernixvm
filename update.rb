@@ -54,3 +54,7 @@ cp 'gnupg/gpg-agent.conf', gnupg_dir
 
 status '-- .gitconfig'
 cp 'gitconfig', home + '.gitconfig'
+
+status '-- .gitignore'
+cp 'gitignore_global', home + '.gitignore'
+

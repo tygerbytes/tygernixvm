@@ -31,6 +31,7 @@
         preloadindex = on
         longpaths = true
         editor = vim
+        excludesfile = ~/.gitignore
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
