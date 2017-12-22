@@ -54,6 +54,8 @@ if ! ps -U "$USER" -o pid,ucomm | grep -q gpg-agent; then
     eval $(gpg-agent --daemon)
 fi
 
+export GPG_TTY=$(tty)
+
 if [ "$COLORTERM" == "gnome-terminal" ] || [ "$COLORTERM" == "xfce4-terminal" ]; then
     TERM=xterm-256color
 elif [ "$COLORTERM" == "rxvt-xpm" ]; then
