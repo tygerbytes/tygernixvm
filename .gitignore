@@ -1,1 +1,4 @@
-git-prompt.sh
+.vagrant/
+*.log
+*.box
+roles/

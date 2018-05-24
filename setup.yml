@@ -1,0 +1,158 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+
+  roles:
+    # https://github.com/rvm/rvm1-ansible
+    - { role: "rvm_io.ruby",
+        tags: "ruby",
+        rvm1_rubies: ['ruby-2.5.1'],
+        rvm1_bundler_install: yes,
+        rvm1_rvm_version: "stable"
+    }
+
+  tasks:
+    - set_fact:
+        home_dir: /home/vagrant
+
+    - name: update apt cache
+      apt:
+        update_cache: yes
+
+    # Install the things
+    - name: install docker
+      apt:
+        name: docker.io
+
+    - name: install nodejs
+      apt:
+        name: nodejs
+
+    - name: install npm
+      apt:
+        name: npm
+
+    - name: install pip
+      apt:
+        name: python-pip
+
+    - name: install aws cli
+      become: no
+      pip:
+        name: awscli
+        extra_args: --user awscli
+
+    # -- elm
+    - name: install elm
+      become: no
+      npm:
+        name: elm
+        path: "{{ home_dir }}"
+
+    - name: install elm-live
+      npm:
+        name: elm-live
+        global: yes
+
+    - name: install elm-test
+      npm:
+        name: elm-test
+        global: yes
+
+    - name: install elm-oracle
+      npm:
+        name: elm-oracle
+        global: yes
+
+    - name: install elm-format
+      npm:
+        name: elm-format
+        global: yes
+
+    # -- assorted installs
+    - name: install diff-so-fancy
+      npm:
+        name: diff-so-fancy
+        global: yes
+
+    - name: install hack font
+      apt:
+        name: fonts-hack-ttf
+
+    - name: install lubuntu-core
+      apt:
+        name: lubuntu-core
+
+    - name: install firefox
+      apt:
+        name: firefox
+
+    - name: install xclip
+      apt:
+        name: xclip
+
+    - name: setup posh-git-sh
+      become: no
+      get_url:
+        url: https://raw.githubusercontent.com/lyze/posh-git-sh/5f42ccd31f28da071262db545cc0b87ec6ad85b6/git-prompt.sh
+        dest: ~/git-prompt.sh
+        mode: 0554
+
+    # -- Setup Vim environment
+    - name: clone vim-config repo
+      become: no
+      git:
+        repo: https://github.com/tygerbytes/vim-config.git
+        dest: "{{ home_dir }}/.vim"
+        track_submodules: yes
+        force: yes
+
+    - name: setup vim env
+      become: no
+      shell: ~/.vim/setup.sh
+      args:
+        chdir: ~
+
+    # -- Copy over dotfiles
+    - name: Install .bashrc
+      become: no
+      copy:
+        src: dotfiles/bashrc
+        dest: "{{ home_dir }}/.bashrc"
+        mode: 0664
+
+    - name: Install .gitconfig
+      become: no
+      copy:
+        src: dotfiles/gitconfig
+        dest: "{{ home_dir }}/.gitconfig"
+        mode: 0664
+
+    - name: Install .gitignore
+      become: no
+      copy:
+        src: dotfiles/gitignore
+        dest: "{{ home_dir }}/.gitignore"
+        mode: 0664
+
+    - name: Install .gitconfig
+      become: no
+      copy:
+        src: dotfiles/gitconfig
+        dest: "{{ home_dir }}/.gitconfig"
+        mode: 0664
+
+    - name: Install gpg-agent.conf
+      become: no
+      copy:
+        src: dotfiles/gpg-agent.conf
+        dest: "{{ home_dir }}/.gnupg/gpg-agent.conf"
+        mode: 0664
+
+    - name: Install .tmux.conf
+      become: no
+      copy:
+        src: dotfiles/tmux.conf
+        dest: "{{ home_dir }}/.tmux.conf"
+        mode: 0664

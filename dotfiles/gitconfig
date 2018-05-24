@@ -1,0 +1,45 @@
+[user]
+        name = Ty Walls
+        email = tygerbytes@tygertec.com
+        signingkey = D8060EA2A7BFB737
+[alias]
+        st = status
+        co = checkout
+        ci = commit
+        cl = clone
+        br = branch
+        r = reset
+        persh = push
+        rh = reset --hard
+        rh1 = reset --hard HEAD~1
+        ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        ll = log --pretty=format:'%Cred%h%C(yellow)%d%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%cn>%Creset' --decorate --numstat
+        type = cat-file -t
+        dump = cat-file -p
+        size = cat-file -s
+        lp = log -w --patch
+        unstage = reset --soft
+        undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+[color]
+        ui = true
+[help]
+        autocorrect = 1
+[branch]
+        autosetuprebase = always
+[core]
+        fscache = on
+        preloadindex = on
+        longpaths = true
+        editor = vim
+        excludesfile = ~/.gitignore
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[commit]
+    gpgsign = true
+[gpg]
+    program = gpg2
+[status]
+    showuntrackedfiles = all
