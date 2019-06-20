@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
   config.vm.hostname = "tygernix"
+  config.vm.synced_folder "share/", "/mnt/share", create: true, automount: true
 
   config.vm.provider "virtualbox" do |vbox|
       vbox.gui = true
