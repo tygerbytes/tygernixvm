@@ -9,7 +9,12 @@
         tags: "ruby",
         rvm1_bundler_install: yes,
         rvm1_rvm_version: "stable"
-        }
+      }
+    - { role: "geerlingguy.docker",
+        docker_edition: 'ce',
+        docker_package_state: 'latest',
+        docker_install_compose: true
+      }
     - aeimer.install_bat
 
   tasks:
@@ -21,10 +26,6 @@
         update_cache: yes
 
     # Install the things
-    - name: install docker
-      apt:
-        name: docker.io
-
     - name: install nodejs
       apt:
         name: nodejs

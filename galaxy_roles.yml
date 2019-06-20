@@ -1,3 +1,4 @@
 ---
 - src: rvm.ruby
 - src: aeimer.install_bat
+- src: geerlingguy.docker
