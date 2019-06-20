@@ -5,12 +5,12 @@
 
   roles:
     # https://github.com/rvm/rvm1-ansible
-    - { role: "rvm_io.ruby",
+    - { role: "rvm.ruby",
         tags: "ruby",
-        rvm1_rubies: ['ruby-2.5.1'],
         rvm1_bundler_install: yes,
         rvm1_rvm_version: "stable"
-    }
+        }
+    - aeimer.install_bat
 
   tasks:
     - set_fact:
