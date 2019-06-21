@@ -1,7 +1,11 @@
 Vagrant.configure("2") do |config|
+
+  system "vagrant plugin install --local vagrant-disksize"
+
   config.vm.box = "ubuntu/bionic64"
   config.vm.hostname = "tygernix"
   config.vm.synced_folder "share/", "/mnt/share", create: true, automount: true
+  config.disksize.size = "20GB"
 
   config.vm.provider "virtualbox" do |vbox|
       vbox.gui = true
