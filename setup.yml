@@ -101,6 +101,13 @@
         mode: 0554
 
     # -- Setup Vim environment
+    - name: create vim temp dir
+      become: no
+      file:
+        path: "{{ home_dir }}/.vimtemp"
+        state: directory
+        mode: '0700'
+
     - name: clone vim-config repo
       become: no
       git:

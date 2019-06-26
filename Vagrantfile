@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
 
-  system "vagrant plugin install --local vagrant-disksize"
+  system "vagrant plugin install vagrant-disksize"
 
   config.vm.box = "ubuntu/bionic64"
   config.vm.hostname = "tygernix"
