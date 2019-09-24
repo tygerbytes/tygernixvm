@@ -147,8 +147,8 @@ PROMPT_COMMAND='__posh_git_ps1 "\u@\h:\w" "\n`jobs_count``lamda_prompt`";'$PROMP
 complete -C '$HOME/.local/bin/aws_completer' aws
 
 # --- Aliases --- #
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+command -v pbcopy >/dev/null 2>&1 || { alias pbcopy='xclip -selection clipboard'; }
+command -v pbpaste >/dev/null 2>&1 || { alias pbpaste='xclip -selection clipboard -o'; }
 alias v='vim'
 
 # --- Useful Git aliases and functions --- #
