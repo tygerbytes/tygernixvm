@@ -5,14 +5,15 @@
 
   roles:
     # https://github.com/rvm/rvm1-ansible
-    - { role: "rvm.ruby",
-        tags: "ruby",
+    - { role: rvm.ruby,
+        tags: ruby,
         rvm1_bundler_install: yes,
-        rvm1_rvm_version: "stable"
+        rvm1_rvm_version: stable,
+        rvm1_user: 'vagrant'
       }
-    - { role: "geerlingguy.docker",
-        docker_edition: 'ce',
-        docker_package_state: 'latest',
+    - { role: geerlingguy.docker,
+        docker_edition: ce,
+        docker_package_state: latest,
         docker_install_compose: true
       }
     - aeimer.install_bat

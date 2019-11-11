@@ -3,3 +3,4 @@
 *.box
 roles/
 share/
+local.config.rb

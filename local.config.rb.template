@@ -1,0 +1,6 @@
+
+# Never commit this.
+
+$smb_hostname = "<YOUR HOSTNAME HERE>"
+$smb_username = "<YOUR USERNAME HERE>"
+$smb_password = "<YOUR PASSWORD HERE>"
